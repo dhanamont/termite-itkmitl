@@ -16,7 +16,8 @@ def ReadAsList( filename ):
 	"""
 	data = []
 	with open( filename, 'r' ) as f:
-		lines = f.read().decode( 'utf-8' ).splitlines()
+		# lines = f.read().decode('utf-8').splitlines()
+		lines = f.read().splitlines()
 		for line in lines:
 			data.append( line )
 	return data
@@ -24,7 +25,8 @@ def ReadAsList( filename ):
 def ReadAsVector( filename ):
 	vector = []
 	with open( filename, 'r' ) as f:
-		lines = f.read().decode( 'utf-8' ).splitlines()
+		# lines = f.read().decode( 'utf-8' ).splitlines()
+		lines = f.read().splitlines()
 		for line in lines:
 			vector.append( float( line ) )
 	return vector
@@ -35,6 +37,7 @@ def ReadAsMatrix( filename ):
 		lines = UnicodeReader( f )
 		for line in lines:
 			matrix.append( map( float, line ) )
+		f.close()
 	return matrix
 
 def ReadAsSparseVector( filename ):

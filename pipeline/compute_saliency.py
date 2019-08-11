@@ -53,6 +53,7 @@ class ComputeSaliency( object ):
 		self.model = ModelAPI( data_path )
 		self.saliency = SaliencyAPI( data_path )
 		
+		self.model.write()
 		self.logger.info( 'Reading data from disk...' )
 		self.model.read()
 		
