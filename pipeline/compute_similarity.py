@@ -259,7 +259,7 @@ def main():
 	
 	# Read in default values from the configuration file
 	if args.config_file is not None:
-		config = ConfigParser.RawConfigParser()
+		config = configparser.RawConfigParser()
 		config.read( args.config_file )
 		if config.has_section( 'Termite' ) and config.has_option( 'Termite', 'path' ):
 			data_path = config.get( 'Termite', 'path' )
