@@ -96,6 +96,7 @@ class SaliencyAPI( object ):
 	
 	def __init__( self, path ):
 		self.path = '{}/{}/'.format( path, SaliencyAPI.SUBFOLDER )
+		print(self.path)
 		self.term_info = {}
 		self.topic_info = {}
 	
@@ -124,6 +125,7 @@ class SimilarityAPI( object ):
 	COMBINED_G2 = 'combined-g2.txt'
 	
 	def __init__( self, path ):
+		print("SimilarityAPI path input: ",path)
 		self.path = '{}/{}/'.format( path, SimilarityAPI.SUBFOLDER )
 		self.document_occurrence = {}
 		self.document_cooccurrence = {}

@@ -112,7 +112,8 @@ def WriteAsJson( data, filename ):
 	Write dict as-is to disk as a JSON object.
 	"""
 	with open( filename, 'w' ) as f:
-		json.dump( data, f, encoding = 'utf-8', indent = 2, sort_keys = True )
+		# json.dump( data, f, encoding = 'utf-8', indent = 2, sort_keys = True )
+		json.dump( data, f, indent = 2, sort_keys = True )
 
 def WriteAsTabDelimited( data, filename, fields ):
 	"""

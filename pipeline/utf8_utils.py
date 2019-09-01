@@ -16,6 +16,7 @@ class UTF8Recoder:
 	"""
 	def __init__(self, f, encoding):
 		self.reader = codecs.getreader(encoding)(f)
+		print(self.reader)
 	
 	def __iter__(self):
 		return self
@@ -30,7 +31,9 @@ class UnicodeReader:
 	"""
 	
 	def __init__(self, f, dialect=csv.excel, encoding="utf-8", delimiter="\t", **kwds):
+		print("Helloworld")
 		f = UTF8Recoder(f, encoding)
+		print(f)
 		self.reader = csv.reader(f, dialect=dialect, delimiter=delimiter, **kwds)
 		f.close()	
 	def next(self):
@@ -57,9 +60,10 @@ class UnicodeWriter:
 		self.writer.writerow([s.encode("utf-8") for s in row])
 		# Fetch UTF-8 output from the queue ...
 		data = self.queue.getvalue()
-		data = data.decode("utf-8", "ignore")
+		# data = data.decode("utf-8", "ignore") -> python 3 not have decode
+		print(type(data))
 		# ... and reencode it into the target encoding
-		data = self.encoder.encode(data)
+		# data = self.encoder.encode(data)
 		# write to the target stream
 		self.stream.write(data)
 		# empty queue

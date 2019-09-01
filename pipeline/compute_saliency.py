@@ -53,9 +53,9 @@ class ComputeSaliency( object ):
 		self.model = ModelAPI( data_path )
 		self.saliency = SaliencyAPI( data_path )
 		
-		self.model.write()
-		self.logger.info( 'Reading data from disk...' )
-		self.model.read()
+		# self.model.write()
+		# self.logger.info( 'Reading data from disk...' )
+		# self.model.read()
 		
 		self.logger.info( 'Computing...' )
 		self.computeTopicInfo()
@@ -143,7 +143,7 @@ def main():
 	
 	# Read in default values from the configuration file
 	if args.config_file is not None:
-		config = ConfigParser.RawConfigParser()
+		config = configparser.RawConfigParser()
 		config.read( args.config_file )
 		if config.has_section( 'Termite' ) and config.has_option( 'Termite', 'path' ):
 			data_path = config.get( 'Termite', 'path' )
