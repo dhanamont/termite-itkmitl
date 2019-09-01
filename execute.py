@@ -113,7 +113,6 @@ def main():
 	
 	corpus_format = None
 	corpus_path = None
-	tokenization = None
 	model_library = None
 	model_path = None
 	data_path = None
